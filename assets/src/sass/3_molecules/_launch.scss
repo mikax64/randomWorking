@@ -1,0 +1,11 @@
+.launch {
+    text-align: center;
+    margin: 2em 0 4em;
+  &__button {
+    position: relative;
+    z-index: 20;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

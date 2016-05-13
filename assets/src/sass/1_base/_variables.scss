@@ -1,0 +1,135 @@
+// Generic Colors
+$primaryColor: #D01866;
+//$primaryColorLight: #C6E1D2;
+//$primaryColorDark: #126349;
+$secondaryColor: rgb(239, 255, 0);
+//$secondaryColorDark: #AB3A00;
+
+$white: #fff;
+$grey100: #f7f7f7;
+$grey200: #f1f1f1;
+$grey300: #777;
+$grey600: #333;
+$grey800: #222;
+
+
+//Specific Colors
+$baseColor: $grey600;
+$baseBgColor: $primaryColor;
+
+  //Header
+  $headerBgColor: $secondaryColor;
+  $headerTitleColor: $primaryColor;
+
+  //Body
+  
+
+
+//Font sizes
+$baseFontSize: 1.4rem !default;
+$lineHeight: 1.5 !default; // equiv line-height 1.5
+
+//Font stacks
+$fontStackCommon: "Gudea", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+$fontStackHeadings: "Rancho", "Helvetica Neue", Helvetica, Arial, sans-serif; 
+
+//Specific Var
+$timing-function: cubic-bezier(0.190, 1.000, 0.220, 1.000);
+
+
+// breakpoints
+$tiny-screen            : 320px !default; // tiny screens media query (less-equal than 320px)
+$tiny-plus-screen       : 480px !default; // screens between 321px and 480px
+$small-screen           : 640px !default; // screens between 481px and 640px
+$small-plus-screen      : 768px !default; // screens between 641px and 768px
+$medium-screen          : 960px !default; // screens between 769px and 960px
+$medium-plus-screen     : 1024px !default; // screens between 961px and 1024px
+$large-screen           : 1280px !default; // screens between 1025px and 1280px
+$large-plus-screen      : 1440px !default; // screens between 1281px and 1440px
+$extra-large-screen     : 1600px !default; // screens between 1441px and 1600px
+$ultra-large-screen     : 1920px !default; // ultra large screens
+
+
+//Extend class
+.shadowLv1 {
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2);
+}
+
+.shadowLv2 {
+  box-shadow: 0 3px 10px rgba(0,0,0,.14), 0 3px 10px rgba(0,0,0,.2);
+}
+
+
+//Mixins
+@mixin answerWheel($num1, $num2, $num3, $numWinner) {
+  .answer__0 {
+    animation-name: wheel0;
+  }
+  .answer__1 {
+    animation-name: wheel+$num1;
+    z-index: $num1;
+  }
+  .answer__2 {
+    animation-name: wheel+$num2;
+    z-index: $num2;
+  }
+  .answer__3 {
+    animation-name: wheel+$num3;
+    z-index: $num3;
+  }
+  .answer__4 {
+    animation-name: wheel+$numWinner;
+    z-index: $numWinner;
+  }
+}
+
+@keyframes wheel0 {
+    0%, 100% { opacity: 0; }
+}
+
+@keyframes wheel1 {
+    0%,2%,4%,6%,8%,10%,12%,14%,16%,18%,20%,22%,24%,26%,28%,30%,32%,34%,  36%,39%,  44%,47%,
+    //Slower
+    52%,57%, 68%,73%, 84%,89%
+    { opacity: 0; }
+    1%,5%,9%,13%,17%,21%,25%,29%,33%,  37%,38%,  45%,46%, 
+    //Slower
+    53%,54%,55%,56%, 69%,70%,71%,72%, 85%,88%
+    { opacity: 1; }
+
+}
+
+@keyframes wheel2 {
+    0%,1%,3%,5%,7%,9%,11%,13%,15%,17%,19%,21%,23%,25%,27%,29%,31%,33%,35%,37%,  38%,41%,  46%,49%,
+    //Slower
+    56%,61%, 72%,77%, 88%,100%
+    { opacity: 0; }
+    2%,6%,10%,14%,18%,22%,26%,30%,34%,  39%,40%,  47%,48%,
+    //Slower
+    57%,58%,59%,60%, 73%,74%,75%,76%, 89%,99%
+    { opacity: 1; }
+}
+
+@keyframes wheel3 {
+    0%,2%,4%,6%,8%,10%,12%,14%,16%,18%,20%,22%,24%,26%,28%,30%,32%,34%,36%,38%,  40%,43%,  48%,51%,
+    //Slower
+    60%,65%, 76%,81%
+    { opacity: 0; }
+    3%,7%,11%,15%,19%,23%,27%,31%,35%,  41%,42%,  49%,50%,
+    //Slower
+    61%,62%,63%,64%, 77%,78%,79%,80%
+    { opacity: 1; }
+}
+
+@keyframes wheel4 {
+    0%,1%,3%,5%,7%,9%,11%,13%,15%,17%,19%,21%,23%,25%,27%,29%,31%,33%,35%,37%,39%,  42%,45%,  50%,53%,
+    //Slower
+    64%,69%, 80%,85%, 99%
+    { opacity: 0; }
+    4%,8%,12%,16%,20%,24%,28%,32%,36%,  43%,44%,  51%,52%,
+    //Slower
+    65%,66%,67%,68%, 81%,82%,83%,84%,
+    //End
+    100%
+    { opacity: 1; }
+}
