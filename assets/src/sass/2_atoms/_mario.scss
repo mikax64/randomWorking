@@ -9,9 +9,7 @@
   }
   
   &.is-jumping {
-    animation-name: marioIsJumping;
-    animation-duration: .250s;
-    transition-property: all;
+    animation: marioIsJumping .250s;
   }
   
   &.is-movingAway {
