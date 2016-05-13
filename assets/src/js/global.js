@@ -1,7 +1,11 @@
+//Array
 var workers = [];
 
+//Animation delay
+var marioIsMovingTime = 2000, marioIsJumpingTime = 250, marioIsWaitingTime = 750, marioIsMovingAwayTime = 1500;
 
-//on click
+
+//On box item click
 $(".answer__0").click(function () {
   
   //If nobody is selected, don't do anything
@@ -15,76 +19,63 @@ $(".answer__0").click(function () {
       workers.push($(this).val());
     });
 
-    //Choose a random one
-    var winner = workers[Math.floor(Math.random() * workers.length)];
+    //Choose a random one | Global var
+    window.winner = workers[Math.floor(Math.random() * workers.length)];
 
-    //Add answer in the DOM
-    //  var winnerMessage = winner,
-    //    winnerWrapper = document.getElementById("answerWrapper");
-
-    //If we click many time on the button, remove old content
-    //  if (winnerWrapper.firstChild) {
-    //    winnerWrapper.removeChild(winnerWrapper.firstChild);
-    //  };
-
-
-    //Display the winner
+    //Display the winner (for debug)
     console.log(winner);
 
-    
-    //Start Mario Animation
+    //Create Mario Animation
     var marioAnimation = '<figure><img src="/assets/dist/img/marioSpriteOpti.svg" alt=""></figure>',
       marioWrapper = document.getElementById("marioWrapper");
 
     marioWrapper.insertAdjacentHTML("beforeend", marioAnimation);
     
-    //Mario is moving
+    //Launch Mario animation
+    mario();
     
-      //Remove old class
-      $("#marioWrapper").removeClass();
-      
-      //Add moving class
-      $("#marioWrapper").addClass("mario is-moving");
+    //Launch Box item animation
+    boxBouncing();
     
-      //Mario is jumping
-      window.setTimeout(function(){
-        //Add moving class
-        $("#marioWrapper").addClass("is-jumping");
-      }, 2000);
-    
-      //Mario is moving away
-      window.setTimeout(function(){
-        //Add moving class
-        $("#marioWrapper").addClass("is-movingAway");
-      }, 3000);
-
-    
-    //Box bouncing
-     window.setTimeout(function(){
-        //Add moving class
-        $(".answer__svg").addClass("is-bouncing");
-      }, 2150);
-    
-    
-    //Waiting Mario
-    window.setTimeout(function(){
-      
-      //Remove old class
-      $("#answerWrapper").removeClass();
-      
-      //Add Winner class
-      $("#answerWrapper").addClass("answer__wrapper is-" + winner);
-      
-      //Clone item for potential animation replay
-      //$("#answerWrapper").replaceWith($("#answerWrapper").clone(true));
-      
-    }, 3625);
-
-    
-    
+    //Launch winner animation
+    winnerIs();
   };
 });
 
+
+function mario() {
+  //Mario is moving
+  //Add moving class
+  $("#marioWrapper").addClass("is-moving");
+
+  //Mario is jumping
+  window.setTimeout(function () {
+    //Add moving class
+    $("#marioWrapper").addClass("is-jumping");
+  }, marioIsMovingTime);
+
+  //Mario is moving away
+  window.setTimeout(function () {
+    //Add moving class
+    $("#marioWrapper").addClass("is-movingAway");
+  }, marioIsMovingTime + marioIsJumpingTime + marioIsWaitingTime);
+}
+
+function boxBouncing() {
+  //Box bouncing
+  window.setTimeout(function () {
+    //Add bouncing class
+    $(".answer__svg").addClass("is-bouncing");
+  }, marioIsMovingTime + marioIsJumpingTime / 2);
+}
+
+function winnerIs() {
+  //Waiting Mario
+  window.setTimeout(function () {
+    //Add Winner class
+    $("#answerWrapper").addClass("is-" + winner);
+  }, marioIsMovingTime + marioIsJumpingTime + marioIsWaitingTime + 625);
+}
 
 
 //Can't clic if nobody is selected
