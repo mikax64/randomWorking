@@ -17,12 +17,12 @@ var paths = {
   src: {
     sass: './assets/src/sass/**/*.scss',
     js: './assets/src/js/*.js',
-    img: 'assets/src/img/*',
+    img: 'assets/src/img/*.png'
   },
   dist: {
     css: './assets/dist/css/',
     js: './assets/dist/js/',
-    img: './assets/dist/img/',
+    img: './assets/dist/img/'
   }
 };
 
