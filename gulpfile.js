@@ -2,7 +2,7 @@ var gulp = require('gulp');
 
 // Load the packages needed
 var autoprefixer = require('gulp-autoprefixer');
-var minifycss = require('gulp-minify-css');
+var cleanCSS = require('gulp-clean-css');
 var sass = require('gulp-sass');
 var rename = require('gulp-rename');
 var uglify = require('gulp-uglify');
@@ -35,7 +35,7 @@ gulp.task('css', function () {
   return gulp.src(paths.src.sass) // Where can I find my sass files
     .pipe(sass()) // Compile SASS
     .pipe(autoprefixer('last 2 version')) // Will autoprefix the css
-    .pipe(minifycss()) // Minify the CSS
+    .pipe(cleanCSS()) // Minify the CSS
     .pipe(rename({ // Rename the file with suffix
       suffix: '.min'
     }))
