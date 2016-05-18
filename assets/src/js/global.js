@@ -6,7 +6,9 @@ var marioIsMovingTime = 2000, marioIsJumpingTime = 250, marioIsWaitingTime = 750
 
 
 //On box item click
-$(".answer__0").click(function () {
+
+
+document.getElementById("startRandomWorking").addEventListener('click', function () {
   
   //If nobody is selected, don't do anything
   if ($(".characters__checkbox:checked").length > 0) {
@@ -40,8 +42,8 @@ $(".answer__0").click(function () {
     //Launch winner animation
     winnerIs();
   };
-});
-
+//});
+  })
 
 function mario() {
   //Mario is moving
