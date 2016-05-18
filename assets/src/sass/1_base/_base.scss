@@ -20,7 +20,7 @@ body {
   background-color: $baseBgColor;
   font-family: $fontStackCommon;
   line-height: $lineHeight;
-  height: 100%;
+  min-height: 100%;
   overflow-x: hidden;
 }
 
